@@ -40,12 +40,10 @@
         };
 
         encoder_scroll: encoder_scroll {
-            compatible = "zmk,behavior-sensor-rotate-var";
+            compatible = "zmk,behavior-sensor-rotate";
             label = "ENCODER_SCROLL";
-            #sensor-binding-cells = <2>;
-            bindings = <&msc>, <&msc>;
-
-            tap-ms = <5>;
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
         };
     };
 
@@ -63,18 +61,18 @@
             >;
 
             sensor-bindings =
-                <&inc_dec_kp K_VOLUME_UP K_VOLUME_DOWN>,
-                <&encoder_scroll SCRL_DOWN SCRL_UP>;
+                <&inc_dec_kp C_VOLUME_DOWN C_VOLUME_UP>,
+                <&encoder_scroll>;
         };
 
         symbols {
             display-name = "lower";
             bindings = <
-&trans  &kp F1         &kp F2                &kp F3             &kp F4                 &kp F5                           &kp F6        &kp F7            &kp F8          &kp F9             &kp F10    &kp F11
-&none   &none          &kp LESS_THAN         &kp DOLLAR         &kp GREATER_THAN       &kp HASH                         &kp PERCENT   &kp LEFT_BRACKET  &kp UNDERSCORE  &kp RIGHT_BRACKET  &none      &kp F12
-&trans  &kp BACKSLASH  &kp LEFT_PARENTHESIS  &kp DOUBLE_QUOTES  &kp RIGHT_PARENTHESIS  &kp SEMICOLON                    &kp ASTERISK  &kp LEFT_BRACE    &kp EQUAL       &kp RIGHT_BRACE    &kp PIPE   &trans
-&trans  &trans         &kp AT_SIGN           &kp MINUS          &kp PLUS               &kp COLON      &trans    &trans  &kp COMMA     &kp AMPERSAND     &kp CARET       &kp TILDE          &kp SLASH  &trans
-                       &trans                &trans             &trans                 &trans         &trans    &trans  &trans        &trans            &trans          &trans
+&caps_word  &kp F1         &kp F2                &kp F3             &kp F4                 &kp F5                           &kp F6        &kp F7            &kp F8          &kp F9             &kp F10      &kp F11
+&none       &none          &kp LESS_THAN         &kp DOLLAR         &kp GREATER_THAN       &kp HASH                         &kp PERCENT   &kp LEFT_BRACKET  &kp UNDERSCORE  &kp RIGHT_BRACKET  &kp AT_SIGN  &kp F12
+&none       &kp BACKSLASH  &kp LEFT_PARENTHESIS  &kp DOUBLE_QUOTES  &kp RIGHT_PARENTHESIS  &kp COLON                        &kp CARET     &kp LEFT_BRACE    &kp EQUAL       &kp RIGHT_BRACE    &kp SLASH    &trans
+&trans      &kp TILDE      &kp EXCLAMATION       &kp MINUS          &kp PLUS               &kp SEMICOLON  &trans    &trans  &kp ASTERISK  &kp AMPERSAND     &kp COMMA       &kp PERIOD         &kp PIPE     &trans
+                           &trans                &trans             &trans                 &trans         &trans    &trans  &trans        &trans            &trans          &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp C_PREV C_NEXT>;
@@ -83,11 +81,11 @@
         raise_layer {
             display-name = "raise";
             bindings = <
-&bt BT_CLR      &bt BT_SEL 0      &bt BT_SEL 1  &bt BT_SEL 2      &bt BT_SEL 3  &bt BT_SEL 4                      &trans     &trans      &trans        &trans     &trans   &trans
-&trans          &kp INS           &kp PSCRN     &kp K_CMENU       &trans        &trans                            &kp PG_UP  &none       &kp UP        &none      &none    &trans
-&kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_COMMAND  &trans        &kp CLCK                          &kp PG_DN  &kp LEFT    &kp DOWN      &kp RIGHT  &kp DEL  &kp BSPC
-&trans          &kp LG(Z)         &kp LG(X)     &kp LG(C)         &kp LG(V)     &studio_unlock  &trans    &trans  &kp COMMA  &kp PERIOD  &kp QUESTION  &none      &trans   &trans
-                                  &trans        &trans            &trans        &trans          &trans    &trans  &trans     &trans      &trans        &trans
+&bt BT_CLR      &bt BT_SEL 0    &bt BT_SEL 1      &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                      &trans           &trans        &trans     &trans      &trans   &trans
+&trans          &kp INS         &kp PSCRN         &kp K_CMENU   &trans        &trans                            &kp PG_UP        &none         &kp UP     &none       &none    &trans
+&kp LEFT_SHIFT  &kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_GUI  &kp CLCK                          &kp PG_DN        &kp LEFT      &kp DOWN   &kp RIGHT   &kp DEL  &kp BSPC
+&trans          &kp LG(Z)       &kp LG(X)         &kp LG(C)     &kp LG(V)     &studio_unlock  &trans    &trans  &kp EXCLAMATION  &kp QUESTION  &kp COMMA  &kp PERIOD  &trans   &trans
+                                &trans            &trans        &trans        &trans          &trans    &trans  &trans           &trans        &trans     &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp C_PREV C_NEXT>;
